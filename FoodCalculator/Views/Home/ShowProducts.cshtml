@@ -1,0 +1,42 @@
+﻿@model List<FoodCalculator.Models.Product>
+
+@*<p class="margin-top"></p>*@
+
+<h3>Products list</h3>
+
+<table class="table table-inverse margin-top">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Name 2</th>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Protein</th>
+            <th>Carbohydrates</th>
+            <th>Sugar</th>
+            <th>Salt</th>
+            <th>Fiber</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductID</td>
+                <td>@product.ProductName</td>
+                <td>@product.ProductName2</td>
+                <td>@product.Calories</td>
+                <td>@product.Fat</td>
+                <td>@product.Protein</td>
+                <td>@product.Carbohydrates</td>
+                <td>@product.Sugar</td>
+                <td>@product.Salt</td>
+                <td>@product.Fiber</td>
+                <td>@product.Category.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

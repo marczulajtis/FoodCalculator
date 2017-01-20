@@ -10,7 +10,7 @@ namespace FoodCalculator.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-
+    using Models;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -62,6 +62,7 @@ namespace FoodCalculator.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<FoodCalculator.Models.FoodCalculatorEntities1>().ToSelf();
+            kernel.Bind<CategoryViewModel>().ToSelf();
         }        
     }
 }

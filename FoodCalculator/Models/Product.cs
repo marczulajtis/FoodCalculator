@@ -36,8 +36,7 @@ namespace FoodCalculator.Models
         public Nullable<int> Fiber { get; set; }
 
         public int CategoryID { get; set; }
-
-        [Required(ErrorMessage = "Please select category")]
+        
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Consumption> Consumptions { get; set; }

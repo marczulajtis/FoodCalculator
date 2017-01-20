@@ -1,4 +1,4 @@
-﻿@model FoodCalculator.Models.Product
+﻿@model FoodCalculator.Models.CategoryViewModel
 
 @{ 
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,42 +7,48 @@
 <h3>Add product</h3>
 
 <div class="form">
-        <span class="alert alert-success">@TempData["Message"]</span>
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success" role="alert">@TempData["Message"]</p>
+    }
 
         @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
 
         @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
         {
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.ProductName, new { @class = "input-md form-control", placeholder = "Product name" })
+                    @Html.TextBoxFor(x => x.NewProduct.ProductName, new { @class = "input-md form-control", placeholder = "Product name" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.ProductName2, new { @class = "input-md form-control", placeholder = "Product name 2" })
+                    @Html.TextBoxFor(x => x.NewProduct.ProductName2, new { @class = "input-md form-control", placeholder = "Product name 2" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Calories, new { @class = "input-md form-control", placeholder = "Calories" })
+                    @Html.TextBoxFor(x => x.NewProduct.Calories, new { @class = "input-md form-control", placeholder = "Calories" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Protein, new { @class = "input-md form-control", placeholder = "Protein" })
+                    @Html.TextBoxFor(x => x.NewProduct.Protein, new { @class = "input-md form-control", placeholder = "Protein" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Fat, new { @class = "input-md form-control", placeholder = "Fat" })
+                    @Html.TextBoxFor(x => x.NewProduct.Fat, new { @class = "input-md form-control", placeholder = "Fat" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Carbohydrates, new { @class = "input-md form-control", placeholder = "Carbohydrates" })
+                    @Html.TextBoxFor(x => x.NewProduct.Carbohydrates, new { @class = "input-md form-control", placeholder = "Carbohydrates" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Sugar, new { @class = "input-md form-control", placeholder = "Sugar" })
+                    @Html.TextBoxFor(x => x.NewProduct.Sugar, new { @class = "input-md form-control", placeholder = "Sugar" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Salt, new { @class = "input-md  form-control", placeholder = "Salt" })
+                    @Html.TextBoxFor(x => x.NewProduct.Salt, new { @class = "input-md  form-control", placeholder = "Salt" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Fiber, new { @class = "input-md form-control", placeholder = "Fiber" })
+                    @Html.TextBoxFor(x => x.NewProduct.Fiber, new { @class = "input-md form-control", placeholder = "Fiber" })
                 </div>
                 <div class="form-group">
-                    @Html.DropDownListFor(x => x.Category, FoodCalculator.Controllers.HomeController.GetCategories(),
-                   new { @class = "form-control" })
+                    @if (Model != null)
+                    {
+                        @Html.DropDownListFor(x => x.NewProduct.CategoryID, Model.CategoriesList, "Select category",
+                            new { @class = "form-control" })
+                    }
                 </div>
 
                 <div class="form-group">

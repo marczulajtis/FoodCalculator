@@ -3,11 +3,15 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*<div class="margin-top"></div>*@
 
 <h3>Add category</h3>
 
 <div class="form">
-    <span class="alert alert-success">@TempData["Message"]</span>
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success" role="alert">@TempData["Message"]</p>
+    }
 
     @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
 

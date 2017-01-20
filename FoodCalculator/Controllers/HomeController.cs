@@ -10,10 +10,12 @@ namespace FoodCalculator.Controllers
     public class HomeController : Controller
     {
         private static FoodCalculatorEntities1 context;
+        private CategoryViewModel vm;
 
-        public HomeController(FoodCalculatorEntities1 dbContext)
+        public HomeController(FoodCalculatorEntities1 dbContext, CategoryViewModel vm)
         {
             context = dbContext;
+            this.vm = vm;
         }
 
         public ActionResult Index()
@@ -21,15 +23,36 @@ namespace FoodCalculator.Controllers
             return View();
         }
         
+        public ActionResult ShowProducts()
+        {
+            return View(context.Products.ToList());
+        }
+
         public ActionResult AddProduct()
         {
-            return View();
+            this.vm.CategoriesList = new SelectList(context.Categories, "CategoryID", "CategoryName", 1);
+
+            return View(this.vm);
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct(CategoryViewModel vm)
         {
-            TempData["Message"] = string.Format("Product {0} added", product.ProductName);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    context.Products.Add(vm.NewProduct);
+
+                    context.SaveChanges();
+
+                    TempData["Message"] = string.Format("Product {0} added", vm.NewProduct.ProductName);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occured while adding new product. Please try again.");
+            }
 
             return View();
         }
@@ -42,19 +65,26 @@ namespace FoodCalculator.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                using (context)
+                if (ModelState.IsValid)
                 {
-                    context.Categories.Add(new Category
+                    using (context)
                     {
-                        CategoryName = category.CategoryName
-                    });
+                        context.Categories.Add(new Category
+                        {
+                            CategoryName = category.CategoryName
+                        });
 
-                    context.SaveChanges();
+                        context.SaveChanges();
 
-                    TempData["Message"] = "Category added";
+                        TempData["Message"] = "Category added";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occured while adding new category. Please try again.");
             }
 
             return View();
@@ -63,7 +93,9 @@ namespace FoodCalculator.Controllers
         public static List<SelectListItem> GetCategories()
         {
             List<SelectListItem> categories = new List<SelectListItem>();
-            
+
+            categories.Add(new SelectListItem { Text = "--- Select category ---", Value = "0" });
+
             foreach (var category in context.Categories)
             {
                 categories.Add(new SelectListItem() { Text = category.CategoryName, Value = category.CategoryID.ToString() });
