@@ -1,19 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-      $( function() {
-        $( "#accordion" ).accordion();
-      } );
-    </script>
+    <title>
+        Food calculator
+    </title>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,10 +20,7 @@
                 </button>
                 @Html.ActionLink("Food calculator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+            @Html.Partial("_Menu");
         </div>
     </div>
 
@@ -40,8 +31,11 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/bootstrap")
 </body>
 </html>

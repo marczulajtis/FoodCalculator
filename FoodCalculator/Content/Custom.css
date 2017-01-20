@@ -1,0 +1,25 @@
+﻿.form {
+    max-width: 500px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+/* Validation summary */
+
+.validation-summary-valid.alert-danger {
+    display: none;
+}
+
+.alert-danger ul li {
+    list-style: none;
+}
+
+.alert-success {
+    display: none;
+}
+
+
+.btn-primary {
+    max-width: 150px;
+}
