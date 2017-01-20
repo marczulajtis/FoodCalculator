@@ -1,0 +1,23 @@
+﻿@model FoodCalculator.Concrete.Product
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        Add product
+    </div>
+    <div class="panel-body">
+        
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+
+        @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(x => x.ProductName, new { @class = "input-md", placeholder = "Product name"})
+            @Html.ValidationMessageFor(x => x.ProductName)
+        }
+
+    </div>
+</div>
