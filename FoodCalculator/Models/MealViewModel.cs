@@ -17,5 +17,11 @@ namespace FoodCalculator.Models
         public int ProductWeight { get; set; }
 
         public int ProductWeightAfterBoiling { get; set; }
+
+        public Meal MealToAdd { get; set; }
+
+        public int SelectedMealTypeID { get; set; }
+
+        public List<MealType> MealTypes { get; set; }
     }
 }

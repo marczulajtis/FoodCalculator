@@ -190,6 +190,7 @@ namespace FoodCalculator.Controllers
         {
             MealViewModel mvm = new MealViewModel();
             mvm.Products = context.Products.ToList();
+            mvm.MealTypes = context.MealTypes.ToList();
 
             return mvm;
         }
