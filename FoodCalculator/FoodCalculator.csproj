@@ -229,6 +229,7 @@
     <Compile Include="Models\MealType.cs">
       <DependentUpon>FoodCalculatorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MealTypeViewModel.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>FoodCalculatorModel.tt</DependentUpon>
     </Compile>

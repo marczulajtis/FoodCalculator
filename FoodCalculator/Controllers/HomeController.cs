@@ -93,7 +93,15 @@ namespace FoodCalculator.Controllers
 
         public ActionResult AddMealType()
         {
-            return View();
+            return View(this.GetMealTypeViewModel());
+        }
+
+        private MealTypeViewModel GetMealTypeViewModel()
+        {
+            MealTypeViewModel mtvm = new MealTypeViewModel();
+            mtvm.MealTypes = context.MealTypes.ToList();
+
+            return mtvm;
         }
 
         [HttpPost]
@@ -115,7 +123,7 @@ namespace FoodCalculator.Controllers
                 ModelState.AddModelError("", "An error occured while adding meal type. Please try again.");
             }
 
-            return View();
+            return View(this.GetMealTypeViewModel());
         }
 
         public ActionResult ShowCategories()
