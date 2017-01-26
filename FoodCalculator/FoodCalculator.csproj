@@ -230,6 +230,7 @@
       <DependentUpon>FoodCalculatorModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MealTypeViewModel.cs" />
+    <Compile Include="Models\MealViewModel.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>FoodCalculatorModel.tt</DependentUpon>
     </Compile>
@@ -261,6 +262,7 @@
     <Content Include="Views\Home\ShowProducts.cshtml" />
     <Content Include="Views\Home\AddMealType.cshtml" />
     <Content Include="Views\Home\ShowCategories.cshtml" />
+    <Content Include="Views\Home\AddMeal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,54 @@
+﻿@model FoodCalculator.Models.MealViewModel
+
+@{
+    ViewBag.Title = "Add Meal";
+}
+
+<h2>AddMeal</h2>
+
+<div class="form-horizontal">
+    @using (Html.BeginForm("AddProductToList", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="control-label">Select product</label>
+            @Html.DropDownListFor(x => x.SelectedProductID,
+                new SelectList(Model.Products, "ProductID", "ProductName"), "--- Select product --",
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Weight</label>
+            @Html.TextBoxFor(x => x.ProductWeight, new {  @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Weight after boiling (optional)</label>
+            @Html.TextBoxFor(x => x.ProductWeightAfterBoiling, new { @class = "form-control" })
+        </div>
+
+        <input type="submit" value="Add product" class="btn btn-default" />
+    }
+</div>
+
+@if (((List<FoodCalculator.Models.MealProductMatch>)Session["ProductsList"]) != null)
+{
+    <table class="table table-inverse margin-top">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Weight</th>
+                <th>Weight after boiling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mealProductMatch in ((List<FoodCalculator.Models.MealProductMatch>)Session["ProductsList"]))
+            {
+                <tr>
+                    <td>@mealProductMatch.Product.ProductName</td>
+                    <td>@mealProductMatch.Weight</td>
+                    <td>@mealProductMatch.WeightAfterBoiling</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

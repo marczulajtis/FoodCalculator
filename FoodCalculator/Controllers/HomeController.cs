@@ -130,5 +130,68 @@ namespace FoodCalculator.Controllers
         {
             return View(context.Categories.ToList());
         }
+
+        public ActionResult AddMeal()
+        {
+            return View(this.GetMealViewModel());
+        }
+
+        public ActionResult AddProductToList()
+        {
+            if (Session["ProductsList"] == null)
+            {
+                this.PopulateSessionProductList();
+            }
+
+            return View("AddMeal", this.GetMealViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult AddProductToList(MealViewModel mvm)
+        {
+            if (Session["ProductsList"] == null)
+            {
+                this.PopulateSessionProductList();
+            }
+
+            ((List<MealProductMatch>)Session["ProductsList"]).Add(this.CreateMealProductMatch(mvm.SelectedProductID, mvm.ProductWeight, mvm.ProductWeightAfterBoiling));
+
+            return View("AddMeal", this.GetMealViewModel());
+        }
+
+        public object PopulateSessionProductList()
+        {
+            List<MealProductMatch> mpmList = new List<MealProductMatch>();
+
+            Session["ProductsList"] = mpmList;
+
+            return Session["ProductsList"];
+        }
+
+        public MealProductMatch CreateMealProductMatch(int selectedProductID, int productWeight, int productWeightAfterBoiling)
+        {
+            MealProductMatch mpm = new MealProductMatch();
+
+            if (context != null)
+            {
+                if (context.Products != null)
+                {
+                    mpm.Product = context.Products.Where(x => x.ProductID == selectedProductID).SingleOrDefault();
+                }
+            }
+
+            mpm.Weight = productWeight;
+            mpm.WeightAfterBoiling = productWeightAfterBoiling;
+
+            return mpm;
+        }
+
+        public MealViewModel GetMealViewModel()
+        {
+            MealViewModel mvm = new MealViewModel();
+            mvm.Products = context.Products.ToList();
+
+            return mvm;
+        }
     }
 }
