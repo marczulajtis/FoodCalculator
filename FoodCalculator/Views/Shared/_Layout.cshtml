@@ -10,19 +10,7 @@
     </title>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Food calculator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            @Html.Partial("_Menu");
-        </div>
-    </div>
+    @Html.Partial("_Menu");
     <div class="margin-top"></div>
     <div class="container body-content">
         @RenderBody()
@@ -37,5 +25,13 @@
 
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/bootstrap")
+
+    @*<script>
+        $('ul.nav li.dropdown').hover(function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        }, function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+    </script>*@
 </body>
 </html>

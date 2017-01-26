@@ -11,22 +11,19 @@ namespace FoodCalculator.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             this.Consumptions = new HashSet<Consumption>();
+            this.MealProductMatches = new HashSet<MealProductMatch>();
         }
     
         public int ProductID { get; set; }
-
-        [Required]
         public string ProductName { get; set; }
         public string ProductName2 { get; set; }
-
-        [Required]
         public int Calories { get; set; }
         public Nullable<int> Protein { get; set; }
         public Nullable<int> Fat { get; set; }
@@ -34,11 +31,12 @@ namespace FoodCalculator.Models
         public Nullable<int> Sugar { get; set; }
         public Nullable<int> Salt { get; set; }
         public Nullable<int> Fiber { get; set; }
-
         public int CategoryID { get; set; }
-        
+    
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Consumption> Consumptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MealProductMatch> MealProductMatches { get; set; }
     }
 }

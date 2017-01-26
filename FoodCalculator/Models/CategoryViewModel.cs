@@ -10,9 +10,7 @@ namespace FoodCalculator.Models
     {
         public CategoryViewModel()
         { }
-
-        public int SelectedCategoryID { get; set; }
-
+        
         public SelectList CategoriesList { get; set; }
 
         public Product NewProduct { get; set; }

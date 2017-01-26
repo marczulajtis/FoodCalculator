@@ -1,0 +1,56 @@
+﻿@model FoodCalculator.Models.MealTypeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3> Meal types</h3>
+
+@if (Model != null)
+{
+    if (Model.MealTypes.Count > 0)
+    {
+        <table class="table table-inverse margin-top">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var mealType in Model.MealTypes)
+                    {
+                        <tr>
+                            <td>@mealType.MealTypeID</td>
+                            <td>@mealType.MealTypeName</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    }
+}
+
+<h3>Add meal type</h3>
+
+<div class="form">
+    @if (TempData["Message"] != null)
+    {
+        <p class="alert alert-success" role="alert">@TempData["Message"]</p>
+    }
+
+    @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+
+    @using (Html.BeginForm("AddMealType", "Home", FormMethod.Post))
+    {
+        if (Model != null)
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.MealType.MealTypeName, new { @class = "inut-md form-control" })
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btn-large"> Add meal type </button>
+            </div>
+        }
+    }
+</div>

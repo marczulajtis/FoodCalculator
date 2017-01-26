@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace FoodCalculator.Controllers
 {
@@ -90,18 +91,36 @@ namespace FoodCalculator.Controllers
             return View();
         }
 
-        public static List<SelectListItem> GetCategories()
+        public ActionResult AddMealType()
         {
-            List<SelectListItem> categories = new List<SelectListItem>();
+            return View();
+        }
 
-            categories.Add(new SelectListItem { Text = "--- Select category ---", Value = "0" });
-
-            foreach (var category in context.Categories)
+        [HttpPost]
+        public ActionResult AddMealType(MealType mealType)
+        {
+            try
             {
-                categories.Add(new SelectListItem() { Text = category.CategoryName, Value = category.CategoryID.ToString() });
+                if (ModelState.IsValid)
+                {
+                    context.MealTypes.Add(mealType);
+
+                    context.SaveChanges();
+
+                    TempData["Message"] = string.Format("Meal type {0} added.", mealType.MealTypeName);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occured while adding meal type. Please try again.");
             }
 
-            return categories;
+            return View();
+        }
+
+        public ActionResult ShowCategories()
+        {
+            return View(context.Categories.ToList());
         }
     }
 }

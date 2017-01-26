@@ -14,7 +14,16 @@ namespace FoodCalculator.Models
     
     public partial class MealType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MealType()
+        {
+            this.Meals = new HashSet<Meal>();
+        }
+    
         public int MealTypeID { get; set; }
         public string MealTypeName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Meal> Meals { get; set; }
     }
 }

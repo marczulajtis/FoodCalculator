@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FoodCalculatorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FoodCalculatorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -30,19 +30,21 @@
           <Property Name="MealID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="Weight" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="WeightAfterBoiling" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Meals">
           <Key>
             <PropertyRef Name="MealID" />
           </Key>
-          <Property Name="MealID" Type="int" Nullable="false" />
+          <Property Name="MealID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MealName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MealTypeID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MealTypes">
           <Key>
             <PropertyRef Name="MealTypeID" />
           </Key>
-          <Property Name="MealTypeID" Type="int" Nullable="false" />
+          <Property Name="MealTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MealTypeName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
@@ -97,6 +99,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MealProductMatches_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="MealProductMatches" Type="Self.MealProductMatches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="MealProductMatches">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meals_MealTypes">
+          <End Role="MealTypes" Type="Self.MealTypes" Multiplicity="1" />
+          <End Role="Meals" Type="Self.Meals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealTypes">
+              <PropertyRef Name="MealTypeID" />
+            </Principal>
+            <Dependent Role="Meals">
+              <PropertyRef Name="MealTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -128,13 +154,20 @@
             <End Role="Meals" EntitySet="Meals" />
             <End Role="MealProductMatches" EntitySet="MealProductMatches" />
           </AssociationSet>
+          <AssociationSet Name="FK_MealProductMatches_Products" Association="Self.FK_MealProductMatches_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="MealProductMatches" EntitySet="MealProductMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meals_MealTypes" Association="Self.FK_Meals_MealTypes">
+            <End Role="MealTypes" EntitySet="MealTypes" />
+            <End Role="Meals" EntitySet="Meals" />
+          </AssociationSet>
           <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FoodCalculatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -167,6 +200,8 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Meal" Relationship="Self.FK_MealProductMatches_Meals" FromRole="MealProductMatches" ToRole="Meals" />
+          <NavigationProperty Name="Product" Relationship="FoodCalculatorModel.FK_MealProductMatches_Products" FromRole="MealProductMatch" ToRole="Product" />
+          <Property Name="WeightAfterBoiling" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Meal">
           <Key>
@@ -176,6 +211,8 @@
           <Property Name="MealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Consumptions" Relationship="Self.FK_Consumptions_Meals" FromRole="Meals" ToRole="Consumptions" />
           <NavigationProperty Name="MealProductMatches" Relationship="Self.FK_MealProductMatches_Meals" FromRole="Meals" ToRole="MealProductMatches" />
+          <Property Name="MealTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MealType" Relationship="FoodCalculatorModel.FK_Meals_MealTypes" FromRole="Meal" ToRole="MealType" />
         </EntityType>
         <EntityType Name="MealType">
           <Key>
@@ -183,6 +220,7 @@
           </Key>
           <Property Name="MealTypeID" Type="Int32" Nullable="false" />
           <Property Name="MealTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Meals" Relationship="FoodCalculatorModel.FK_Meals_MealTypes" FromRole="MealType" ToRole="Meal" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -201,6 +239,7 @@
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="Consumptions" Relationship="Self.FK_Consumptions_Products" FromRole="Products" ToRole="Consumptions" />
+          <NavigationProperty Name="MealProductMatches" Relationship="FoodCalculatorModel.FK_MealProductMatches_Products" FromRole="Product" ToRole="MealProductMatch" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Category" Multiplicity="1" />
@@ -273,7 +312,39 @@
             <End Role="Meals" EntitySet="Meals" />
             <End Role="MealProductMatches" EntitySet="MealProductMatches" />
           </AssociationSet>
+          <AssociationSet Name="FK_MealProductMatches_Products" Association="FoodCalculatorModel.FK_MealProductMatches_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="MealProductMatch" EntitySet="MealProductMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meals_MealTypes" Association="FoodCalculatorModel.FK_Meals_MealTypes">
+            <End Role="MealType" EntitySet="MealTypes" />
+            <End Role="Meal" EntitySet="Meals" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_MealProductMatches_Products">
+          <End Type="FoodCalculatorModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="FoodCalculatorModel.MealProductMatch" Role="MealProductMatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="MealProductMatch">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meals_MealTypes">
+          <End Type="FoodCalculatorModel.MealType" Role="MealType" Multiplicity="1" />
+          <End Type="FoodCalculatorModel.Meal" Role="Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealType">
+              <PropertyRef Name="MealTypeID" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="MealTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -302,6 +373,7 @@
           <EntitySetMapping Name="MealProductMatches">
             <EntityTypeMapping TypeName="FoodCalculatorModel.MealProductMatch">
               <MappingFragment StoreEntitySet="MealProductMatches">
+                <ScalarProperty Name="WeightAfterBoiling" ColumnName="WeightAfterBoiling" />
                 <ScalarProperty Name="MealProductID" ColumnName="MealProductID" />
                 <ScalarProperty Name="MealID" ColumnName="MealID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -312,6 +384,7 @@
           <EntitySetMapping Name="Meals">
             <EntityTypeMapping TypeName="FoodCalculatorModel.Meal">
               <MappingFragment StoreEntitySet="Meals">
+                <ScalarProperty Name="MealTypeID" ColumnName="MealTypeID" />
                 <ScalarProperty Name="MealID" ColumnName="MealID" />
                 <ScalarProperty Name="MealName" ColumnName="MealName" />
               </MappingFragment>

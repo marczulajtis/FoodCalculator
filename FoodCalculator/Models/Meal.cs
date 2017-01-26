@@ -23,10 +23,12 @@ namespace FoodCalculator.Models
     
         public int MealID { get; set; }
         public string MealName { get; set; }
+        public int MealTypeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Consumption> Consumptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MealProductMatch> MealProductMatches { get; set; }
+        public virtual MealType MealType { get; set; }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodCalculator", "FoodCalculator\FoodCalculator.csproj", "{5A16BB40-85B9-4FE6-82C6-F9D4B633AC37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodCalculator.Console", "FoodCalculator.Console\FoodCalculator.Console.csproj", "{B0A36B87-844C-4022-89C7-75378C3BA9FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5A16BB40-85B9-4FE6-82C6-F9D4B633AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A16BB40-85B9-4FE6-82C6-F9D4B633AC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A16BB40-85B9-4FE6-82C6-F9D4B633AC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A36B87-844C-4022-89C7-75378C3BA9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A36B87-844C-4022-89C7-75378C3BA9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A36B87-844C-4022-89C7-75378C3BA9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A36B87-844C-4022-89C7-75378C3BA9FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

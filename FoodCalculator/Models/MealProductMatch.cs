@@ -18,7 +18,9 @@ namespace FoodCalculator.Models
         public int MealID { get; set; }
         public int ProductID { get; set; }
         public decimal Weight { get; set; }
+        public Nullable<decimal> WeightAfterBoiling { get; set; }
     
         public virtual Meal Meal { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
