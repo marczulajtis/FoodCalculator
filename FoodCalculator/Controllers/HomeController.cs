@@ -136,6 +136,60 @@ namespace FoodCalculator.Controllers
             return View(this.GetMealViewModel());
         }
 
+        [HttpPost]
+        public ActionResult AddMeal(MealViewModel mvm)
+        {
+            if (mvm != null)
+            {
+                // add meal
+                Meal mealToAdd = this.PopulateMealObject(mvm);
+
+                context.Meals.Add(mealToAdd);
+
+                context.SaveChanges();
+
+                // add meal product matches
+                foreach (var mpm in this.PopulateMealProductMatchList(mealToAdd.MealID))
+                {
+                    context.MealProductMatches.Add(mpm);
+                }
+
+                context.SaveChanges();
+
+            }
+
+            return View(this.GetMealViewModel());
+        }
+
+        private Meal PopulateMealObject(MealViewModel mvm)
+        {
+            Meal meal = new Meal();
+            meal.MealName = mvm.MealToAdd.MealName;
+            meal.MealTypeID = mvm.SelectedMealTypeID;
+            
+            return meal;
+        }
+
+        private List<MealProductMatch> PopulateMealProductMatchList(int mealID)
+        {
+            List<MealProductMatch> mpmList = new List<MealProductMatch>();
+
+            foreach (var mealProductMatch in ((List<MealProductMatch>)Session["ProductsList"]))
+            {
+                MealProductMatch mpm = new MealProductMatch()
+                {
+                    ProductID = mealProductMatch.ProductID,
+                    Weight = mealProductMatch.Weight,
+                    WeightAfterBoiling = mealProductMatch.WeightAfterBoiling,
+                    MealID = mealID
+                };
+
+                mpmList.Add(mpm);
+            }
+
+            return mpmList;
+        }
+
         public ActionResult AddProductToList()
         {
             if (Session["ProductsList"] == null)
@@ -180,6 +234,7 @@ namespace FoodCalculator.Controllers
                 }
             }
 
+            mpm.ProductID = selectedProductID;
             mpm.Weight = productWeight;
             mpm.WeightAfterBoiling = productWeightAfterBoiling;
 

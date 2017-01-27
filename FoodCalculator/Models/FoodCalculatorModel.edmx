@@ -26,7 +26,7 @@
           <Key>
             <PropertyRef Name="MealProductID" />
           </Key>
-          <Property Name="MealProductID" Type="int" Nullable="false" />
+          <Property Name="MealProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MealID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="Weight" Type="decimal" Precision="18" Scale="0" Nullable="false" />
