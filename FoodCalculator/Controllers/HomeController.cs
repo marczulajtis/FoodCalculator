@@ -141,21 +141,25 @@ namespace FoodCalculator.Controllers
         {
             if (mvm != null)
             {
-                // add meal
-                Meal mealToAdd = this.PopulateMealObject(mvm);
-
-                context.Meals.Add(mealToAdd);
-
-                context.SaveChanges();
-
-                // add meal product matches
-                foreach (var mpm in this.PopulateMealProductMatchList(mealToAdd.MealID))
+                if (this.ValidateAddingMeal(mvm))
                 {
-                    context.MealProductMatches.Add(mpm);
+                    // add meal
+                    Meal mealToAdd = this.PopulateMealObject(mvm);
+
+                    context.Meals.Add(mealToAdd);
+
+                    context.SaveChanges();
+
+                    // add meal product matches
+                    foreach (var mpm in this.PopulateMealProductMatchList(mealToAdd.MealID))
+                    {
+                        context.MealProductMatches.Add(mpm);
+                    }
+
+                    context.SaveChanges();
+
+                    TempData["Message"] = string.Format("Meal {0} added.", mealToAdd.MealName);
                 }
-
-                context.SaveChanges();
-
             }
 
             return View(this.GetMealViewModel());
@@ -208,9 +212,61 @@ namespace FoodCalculator.Controllers
                 this.PopulateSessionProductList();
             }
 
-            ((List<MealProductMatch>)Session["ProductsList"]).Add(this.CreateMealProductMatch(mvm.SelectedProductID, mvm.ProductWeight, mvm.ProductWeightAfterBoiling));
+            if (mvm != null)
+            {
+                if (this.ValidateAddingProducts(mvm))
+                {
+                    ((List<MealProductMatch>)Session["ProductsList"]).Add(this.CreateMealProductMatch(mvm.SelectedProductID, mvm.ProductWeight, mvm.ProductWeightAfterBoiling));
+
+                }
+            }
 
             return View("AddMeal", this.GetMealViewModel());
+        }
+
+        private bool ValidateAddingProducts(MealViewModel mvm)
+        {
+            if (mvm.SelectedProductID != 0)
+            {
+                if (mvm.ProductWeight > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Product weight has to be greater than 0.");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Please select product.");
+            }
+
+            return false;
+        }
+
+        private bool ValidateAddingMeal(MealViewModel mvm)
+        {
+            if (mvm.MealToAdd != null)
+            {
+                if (!(string.IsNullOrEmpty(mvm.MealToAdd.MealName)))
+                {
+                    if (mvm.SelectedMealTypeID != 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Please select a meal type.");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please type a meal name.");
+                }
+            }
+
+            return false;
         }
 
         public object PopulateSessionProductList()
