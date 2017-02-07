@@ -1,0 +1,35 @@
+﻿@model FoodCalculator.Models.MealViewModel
+
+@{
+    ViewBag.Title = "Show Meals";
+}
+
+<h2>Meals</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            No
+        </th>
+        <th>
+            Meal name
+        </th>
+        <th>
+            Meal type name
+        </th>
+    </tr>
+
+@foreach (var item in Model.Meals) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Key)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value.MealName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value.MealType.MealTypeName)
+        </td>
+    </tr>
+}
+</table>

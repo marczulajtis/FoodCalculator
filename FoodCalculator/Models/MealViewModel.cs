@@ -23,5 +23,7 @@ namespace FoodCalculator.Models
         public int SelectedMealTypeID { get; set; }
 
         public List<MealType> MealTypes { get; set; }
+
+        public Dictionary<int, Meal> Meals { get; set; }
     }
 }

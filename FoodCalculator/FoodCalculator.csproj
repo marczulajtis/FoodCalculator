@@ -269,6 +269,7 @@
     <Content Include="Views\Home\AddMealType.cshtml" />
     <Content Include="Views\Home\ShowCategories.cshtml" />
     <Content Include="Views\Home\AddMeal.cshtml" />
+    <Content Include="Views\Home\ShowMeals.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

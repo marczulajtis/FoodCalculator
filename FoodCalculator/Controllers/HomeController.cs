@@ -224,6 +224,69 @@ namespace FoodCalculator.Controllers
             return View("AddMeal", this.GetMealViewModel());
         }
 
+        public ActionResult ShowMeals()
+        {
+            if (context != null)
+            {
+                MealViewModel mvm = new MealViewModel();
+
+                if (mvm.Meals == null)
+                {
+                    mvm.Meals = new Dictionary<int, Meal>();
+                }
+
+                int mealNr = 0;
+
+                foreach (var meal in context.Meals)
+                {
+                    mealNr += 1;
+
+                    mvm.Meals.Add(mealNr, meal);
+                }
+
+                return View(mvm);
+            }
+
+            return View(new List<Meal>());
+        }
+
+        public object PopulateSessionProductList()
+        {
+            List<MealProductMatch> mpmList = new List<MealProductMatch>();
+
+            Session["ProductsList"] = mpmList;
+
+            return Session["ProductsList"];
+        }
+
+        public MealProductMatch CreateMealProductMatch(int selectedProductID, int productWeight, int productWeightAfterBoiling)
+        {
+            MealProductMatch mpm = new MealProductMatch();
+
+            if (context != null)
+            {
+                if (context.Products != null)
+                {
+                    mpm.Product = context.Products.Where(x => x.ProductID == selectedProductID).SingleOrDefault();
+                }
+            }
+
+            mpm.ProductID = selectedProductID;
+            mpm.Weight = productWeight;
+            mpm.WeightAfterBoiling = productWeightAfterBoiling;
+
+            return mpm;
+        }
+
+        public MealViewModel GetMealViewModel()
+        {
+            MealViewModel mvm = new MealViewModel();
+            mvm.Products = context.Products.ToList();
+            mvm.MealTypes = context.MealTypes.ToList();
+
+            return mvm;
+        }
+
         private bool ValidateAddingProducts(MealViewModel mvm)
         {
             if (mvm.SelectedProductID != 0)
@@ -267,43 +330,6 @@ namespace FoodCalculator.Controllers
             }
 
             return false;
-        }
-
-        public object PopulateSessionProductList()
-        {
-            List<MealProductMatch> mpmList = new List<MealProductMatch>();
-
-            Session["ProductsList"] = mpmList;
-
-            return Session["ProductsList"];
-        }
-
-        public MealProductMatch CreateMealProductMatch(int selectedProductID, int productWeight, int productWeightAfterBoiling)
-        {
-            MealProductMatch mpm = new MealProductMatch();
-
-            if (context != null)
-            {
-                if (context.Products != null)
-                {
-                    mpm.Product = context.Products.Where(x => x.ProductID == selectedProductID).SingleOrDefault();
-                }
-            }
-
-            mpm.ProductID = selectedProductID;
-            mpm.Weight = productWeight;
-            mpm.WeightAfterBoiling = productWeightAfterBoiling;
-
-            return mpm;
-        }
-
-        public MealViewModel GetMealViewModel()
-        {
-            MealViewModel mvm = new MealViewModel();
-            mvm.Products = context.Products.ToList();
-            mvm.MealTypes = context.MealTypes.ToList();
-
-            return mvm;
         }
     }
 }
