@@ -1,6 +1,0 @@
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\bin\Debug\FoodCalculator.Console.exe.config
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\bin\Debug\FoodCalculator.Console.exe
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\bin\Debug\FoodCalculator.Console.pdb
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\obj\Debug\FoodCalculator.Console.csprojResolveAssemblyReference.cache
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\obj\Debug\FoodCalculator.Console.exe
-C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator.Console\obj\Debug\FoodCalculator.Console.pdb

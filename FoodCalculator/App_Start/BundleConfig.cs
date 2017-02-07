@@ -22,9 +22,6 @@ namespace FoodCalculator.App_Start
                 "~/Content/bootstrap.css",
                 "~/Content/Site.css",
                 "~/Content/Custom.css"));
-
-            bundles.Add(new ScriptBundle("~/scripts/custom").Include(
-                "~/scripts/custom/MealDetails.js"));
         }
     }
 }
