@@ -6,7 +6,8 @@
 
 <h2>Meals</h2>
 
-<table class="table">
+<table class="table table-striped table-hover">
+    <thead>
     <tr>
         <th>
             No
@@ -18,9 +19,10 @@
             Meal type name
         </th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model.Meals) {
-    <tr>
+    <tr id="tableRowClick" data-toggle="modal" data-id="@item.Value.MealID" data-target="#mealModal" >
         <td>
             @Html.DisplayFor(modelItem => item.Key)
         </td>
@@ -31,5 +33,7 @@
             @Html.DisplayFor(modelItem => item.Value.MealType.MealTypeName)
         </td>
     </tr>
-}
+}   
+    </tbody>
 </table>
+
