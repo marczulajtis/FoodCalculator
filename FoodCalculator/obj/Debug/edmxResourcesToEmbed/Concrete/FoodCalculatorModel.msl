@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FoodCalculatorModelStoreContainer" CdmEntityContainer="FoodCalculatorEntities1">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consumptions">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.Consumption">
+        <MappingFragment StoreEntitySet="Consumptions">
+          <ScalarProperty Name="ConsumptionID" ColumnName="ConsumptionID" />
+          <ScalarProperty Name="MealID" ColumnName="MealID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MealProductMatches">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.MealProductMatch">
+        <MappingFragment StoreEntitySet="MealProductMatches">
+          <ScalarProperty Name="MealProductID" ColumnName="MealProductID" />
+          <ScalarProperty Name="MealID" ColumnName="MealID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meals">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.Meal">
+        <MappingFragment StoreEntitySet="Meals">
+          <ScalarProperty Name="MealID" ColumnName="MealID" />
+          <ScalarProperty Name="MealName" ColumnName="MealName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MealTypes">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.MealType">
+        <MappingFragment StoreEntitySet="MealTypes">
+          <ScalarProperty Name="MealTypeID" ColumnName="MealTypeID" />
+          <ScalarProperty Name="MealTypeName" ColumnName="MealTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FoodCalculatorModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductName2" ColumnName="ProductName2" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="Protein" ColumnName="Protein" />
+          <ScalarProperty Name="Fat" ColumnName="Fat" />
+          <ScalarProperty Name="Carbohydrates" ColumnName="Carbohydrates" />
+          <ScalarProperty Name="Sugar" ColumnName="Sugar" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Fiber" ColumnName="Fiber" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

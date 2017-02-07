@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FoodCalculatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Consumption">
+    <Key>
+      <PropertyRef Name="ConsumptionID" />
+    </Key>
+    <Property Name="ConsumptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MealID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Meal" Relationship="Self.FK_Consumptions_Meals" FromRole="Consumptions" ToRole="Meals" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Consumptions_Products" FromRole="Consumptions" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="MealProductMatch">
+    <Key>
+      <PropertyRef Name="MealProductID" />
+    </Key>
+    <Property Name="MealProductID" Type="Int32" Nullable="false" />
+    <Property Name="MealID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Meal" Relationship="Self.FK_MealProductMatches_Meals" FromRole="MealProductMatches" ToRole="Meals" />
+  </EntityType>
+  <EntityType Name="Meal">
+    <Key>
+      <PropertyRef Name="MealID" />
+    </Key>
+    <Property Name="MealID" Type="Int32" Nullable="false" />
+    <Property Name="MealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Consumptions" Relationship="Self.FK_Consumptions_Meals" FromRole="Meals" ToRole="Consumptions" />
+    <NavigationProperty Name="MealProductMatches" Relationship="Self.FK_MealProductMatches_Meals" FromRole="Meals" ToRole="MealProductMatches" />
+  </EntityType>
+  <EntityType Name="MealType">
+    <Key>
+      <PropertyRef Name="MealTypeID" />
+    </Key>
+    <Property Name="MealTypeID" Type="Int32" Nullable="false" />
+    <Property Name="MealTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Calories" Type="Int32" Nullable="false" />
+    <Property Name="Protein" Type="Int32" />
+    <Property Name="Fat" Type="Int32" />
+    <Property Name="Carbohydrates" Type="Int32" />
+    <Property Name="Sugar" Type="Int32" />
+    <Property Name="Salt" Type="Int32" />
+    <Property Name="Fiber" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="Consumptions" Relationship="Self.FK_Consumptions_Products" FromRole="Products" ToRole="Consumptions" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consumptions_Meals">
+    <End Role="Meals" Type="Self.Meal" Multiplicity="0..1" />
+    <End Role="Consumptions" Type="Self.Consumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meals">
+        <PropertyRef Name="MealID" />
+      </Principal>
+      <Dependent Role="Consumptions">
+        <PropertyRef Name="MealID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consumptions_Products">
+    <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Consumptions" Type="Self.Consumption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Consumptions">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MealProductMatches_Meals">
+    <End Role="Meals" Type="Self.Meal" Multiplicity="1" />
+    <End Role="MealProductMatches" Type="Self.MealProductMatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meals">
+        <PropertyRef Name="MealID" />
+      </Principal>
+      <Dependent Role="MealProductMatches">
+        <PropertyRef Name="MealID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FoodCalculatorEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Consumptions" EntityType="Self.Consumption" />
+    <EntitySet Name="MealProductMatches" EntityType="Self.MealProductMatch" />
+    <EntitySet Name="Meals" EntityType="Self.Meal" />
+    <EntitySet Name="MealTypes" EntityType="Self.MealType" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consumptions_Meals" Association="Self.FK_Consumptions_Meals">
+      <End Role="Meals" EntitySet="Meals" />
+      <End Role="Consumptions" EntitySet="Consumptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consumptions_Products" Association="Self.FK_Consumptions_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Consumptions" EntitySet="Consumptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MealProductMatches_Meals" Association="Self.FK_MealProductMatches_Meals">
+      <End Role="Meals" EntitySet="Meals" />
+      <End Role="MealProductMatches" EntitySet="MealProductMatches" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

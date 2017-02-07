@@ -1,0 +1,113 @@
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\ApplicationInsights.config
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\csc.exe
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\System.Collections.Immutable.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\vbc.exe
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\VBCSCompiler.exe
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\roslyn\VBCSCompiler.exe.config
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\FoodCalculator.dll.config
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\FoodCalculator.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\FoodCalculator.pdb
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\EntityFramework.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\EntityFramework.SqlServer.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Web.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.WindowsServer.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.ApplicationInsights.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.Web.Infrastructure.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Helpers.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Mvc.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Razor.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Deployment.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Razor.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\EntityFramework.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\EntityFramework.SqlServer.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Web.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.AI.WindowsServer.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.ApplicationInsights.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Razor.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Deployment.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Razor.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Helpers.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\bin\System.Web.Mvc.xml
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\obj\Debug\FoodCalculator.csprojResolveAssemblyReference.cache
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\obj\Debug\FoodCalculator.dll
+c:\users\mulan\documents\visual studio 2015\Projects\FoodCalculator\FoodCalculator\obj\Debug\FoodCalculator.pdb
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\ApplicationInsights.config
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\csc.exe
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\vbc.exe
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\VBCSCompiler.exe
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\FoodCalculator.dll.config
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\FoodCalculator.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\FoodCalculator.pdb
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Antlr3.Runtime.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\EntityFramework.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\EntityFramework.SqlServer.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Web.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Newtonsoft.Json.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.Web.Common.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.Web.Mvc.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Helpers.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Mvc.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Optimization.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Razor.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Deployment.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Razor.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\WebActivatorEx.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\WebGrease.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Antlr3.Runtime.pdb
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\EntityFramework.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\EntityFramework.SqlServer.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.Web.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Newtonsoft.Json.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.Web.Common.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\Ninject.Web.Mvc.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Optimization.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Razor.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Deployment.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Webpages.Razor.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Helpers.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\bin\System.Web.Mvc.xml
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\obj\Debug\FoodCalculator.dll
+C:\Users\mulan\Documents\GitHub\FoodCalculator\FoodCalculator\obj\Debug\FoodCalculator.pdb

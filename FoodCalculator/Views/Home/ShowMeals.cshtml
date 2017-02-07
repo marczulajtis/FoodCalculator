@@ -24,7 +24,7 @@
 @foreach (var item in Model.Meals) {
     <tr id="tableRowClick" data-toggle="modal" data-id="@item.Value.MealID" data-target="#mealModal" >
         <td>
-            @Html.DisplayFor(modelItem => item.Key)
+            @Html.DisplayFor(modelItem => item.Value.MealID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Value.MealName)

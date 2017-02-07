@@ -24,74 +24,11 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
-
-    <script type="text/javascript">
-              
-            $('.table-striped').find('tr[data-id]').on('click', function () {
-                $('#book').modal('show');
-            });
-    </script>
-
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/scripts/custom")
     
-    <div class="modal fade" id="book" style="display: none; border: 5px solid black; padding: 10px;" role="dialog" aria-labelledby="CmapModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    @Html.Partial("~/Views/Common/MealDetailsModal.cshtml")
+
 </body>
 </html>
-
-<h1>Orders</h1>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Customer</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr data-id="1">
-            <td>1</td>
-            <td>24234234</td>
-            <td>A</td>
-        </tr>
-        <tr data-id="2">
-            <td>2</td>
-            <td>24234234</td>
-            <td>A</td>
-        </tr>
-        <tr data-id="3">
-            <td>3</td>
-            <td>24234234</td>
-            <td>A</td>
-        </tr>
-    </tbody>
-</table>
-<div id="orderModal" class="modal hide fade" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-        <h3>Order</h3>
-
-    </div>
-    <div id="orderDetails" class="modal-body"></div>
-    <div id="orderItems" class="modal-body"></div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
-</div>
