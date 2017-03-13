@@ -250,6 +250,19 @@ namespace FoodCalculator.Controllers
             return View(new List<Meal>());
         }
 
+        public ActionResult ShowMealDetails()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult ShowMealDetails(int mealID)
+        {
+            Meal meal = context.Meals.Where(x => x.MealID == mealID).SingleOrDefault();
+
+            return PartialView("ShowMealDetails", meal);
+        }
+        
         public object PopulateSessionProductList()
         {
             List<MealProductMatch> mpmList = new List<MealProductMatch>();
@@ -285,6 +298,12 @@ namespace FoodCalculator.Controllers
             mvm.MealTypes = context.MealTypes.ToList();
 
             return mvm;
+        }
+
+        [HttpGet]
+        public PartialViewResult GetMealDetails(int mealID)
+        {
+            return this.PartialView("~/Views/Modals/MealDetails.cshtml", context.Meals.FirstOrDefault(x => x.MealID == mealID));
         }
 
         private bool ValidateAddingProducts(MealViewModel mvm)

@@ -12,7 +12,10 @@ namespace FoodCalculator.App_Start
         {
             bundles.IgnoreList.Clear();
 
-            bundles.Add(new ScriptBundle("~/scripts").Include("~/scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/scripts").Include(
+                "~/scripts/jquery-{version}.js",
+                "~/scripts/jquery-ui.js",
+                "~/scripts/jquery-ui.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/scripts/bootstrap.js", 

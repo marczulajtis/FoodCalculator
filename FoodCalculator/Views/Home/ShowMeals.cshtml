@@ -1,39 +1,46 @@
 ﻿@model FoodCalculator.Models.MealViewModel
 
 @{
-    ViewBag.Title = "Show Meals";
+    ViewBag.Title = "Meals";
 }
 
 <h2>Meals</h2>
 
-<table class="table table-striped table-hover" id="mealDetailsTable">
-    <thead>
-    <tr>
-        <th>
-            No
-        </th>
-        <th>
-            Meal name
-        </th>
-        <th>
-            Meal type name
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Meals) {
-    <tr id="tableRowClick" data-toggle="modal" data-id="@item.Value.MealID" data-target="#mealModal" >
-        <td>
-            @Html.DisplayFor(modelItem => item.Key)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Value.MealName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Value.MealType.MealTypeName)
-        </td>
-    </tr>
-}   
-    </tbody>
-</table>
+<table class="table table-striped table-hover mealDetailsTable">
+        <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Meal name
+            </th>
+            <th>
+                Meal type name
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Meals)
+            {
+                <tr id="tableRowClick" data-toggle="modal" data-id="@item.Value" data-target="#mealDetails">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.MealID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.MealName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.MealType.MealTypeName)
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("Details", "GetMealDetails", new { mealID = item.Value.MealID }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result", InsertionMode = InsertionMode.Replace, OnSuccess = "openPopup" })
+                    </td>
+                </tr>
+            }   
+        </tbody>
+    </table>
+@*}*@
+
+<div id="result" style="display:none;"></div>
 

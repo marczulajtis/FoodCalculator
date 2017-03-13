@@ -31,3 +31,8 @@
 .margin-bottom {
     margin-bottom: 50px;
 }
+
+/* table */
+.mealDetailsTable tr{
+    cursor: pointer;
+}
